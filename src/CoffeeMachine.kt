@@ -1,16 +1,19 @@
-class CoffeeMachine() {
-    var water: Int = 2000
-    var milk: Int = 1000
-    var beans: Int = 500
+class CoffeeMachine {
+    private var water: Int = 2000
+    private var milk: Int = 1000
+    private var beans: Int = 500
 
     private fun checkCoffee(name: String, coffee: Coffee) {
         if (coffee.water > water) {
             println("Недостаточно воды!\n")
-        } else if (coffee.milk > milk) {
+        }
+        if (coffee.milk > milk) {
             println("Недостаточно молока!\n")
-        } else if (coffee.beans > beans) {
+        }
+        if (coffee.beans > beans) {
             println("Недостаточно кофе!\n")
-        } else {
+        }
+        if (coffee.water <= water && coffee.milk <= milk && coffee.beans <= beans) {
             water -= coffee.water
             milk -= coffee.milk
             beans -= coffee.beans
@@ -21,7 +24,7 @@ class CoffeeMachine() {
     fun start() {
         println("Кофемашина готова к работе")
         while (true) {
-            println("Введите команду\n>>")
+            print("Введите команду\n>>")
             var input = readlnOrNull()
             when (input) {
                 "выключить" -> {
